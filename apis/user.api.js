@@ -6,7 +6,6 @@ const {
   deleteAccount,
   changePassword,
 } = require("../services/user.service");
-
 const app = require("express").Router();
 app.post("/signup", signup);
 app.post("/signin", signin);

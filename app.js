@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 app.use(express.json());
 app.use("/", require("./apis/user.api"));
 app.use("/note", require("./apis/note.api"));
-
 app.use("*", (req, res) => {
   res.json({ message: "wrong path" });
 });
@@ -17,6 +16,5 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
 app.get("/", (req, res) => res.send("Hello World!"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

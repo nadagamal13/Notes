@@ -1,14 +1,11 @@
-const { json } = require("express");
 const noteModel = require("../models/note.model");
-
 module.exports.addNote = async (req, res) => {
   const { title, description } = req.body;
   await noteModel.insertMany({ title, description, createdBy: req.id });
   res.json({ message: "note added" });
 };
 module.exports.allNotes = async (req, res) => {
-  const note = await noteModel
-    .find({ createdBy: req.id })
+  const note = await noteModel.find({ createdBy: req.id });
   res.json({ message: "my notes", note });
 };
 module.exports.updateNote = async (req, res) => {
